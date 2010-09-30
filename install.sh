@@ -15,3 +15,7 @@ ln -s `pwd`/gitconfig ~/.gitconfig
 echo ".profile"
 rm -f ~/.profile
 ln -s `pwd`/profile ~/.profile
+
+echo ".pythonstartup"
+rm -f ~/.pythonstartup
+ln -s `pwd`/pythonstartup ~/.pythonstartup

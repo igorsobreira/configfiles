@@ -15,6 +15,7 @@ set tabstop=8
 "set smarttab
 
 filetype on
+filetype plugin on
 set autoindent
 
 "set foldmethod=indent

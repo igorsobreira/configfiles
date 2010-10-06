@@ -69,7 +69,7 @@ noremap <silent> ,u :s,^\V<C-R>=comment<CR>,,e<CR>:noh<CR>
 "noremap <C-t> :<C-u>CommandT<CR>
 
 " Python
-let python_highlight_all = 1
+"let python_highlight_all = 1
 au BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,not
 
 if has("gui_running")

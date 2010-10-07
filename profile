@@ -31,6 +31,7 @@ export PATH=~/Scripts:/usr/local/sbin/:/usr/local/bin:$PATH
 export PATH=/usr/local/Cellar/ruby/1.9.1-p378/bin:$PATH
 export PATH=/Users/igor.sobreira/.gem/ruby/1.9.1/bin:$PATH
 
+# git
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
@@ -49,6 +50,8 @@ PS2='> '
 PS4='+ '
 }
 proml
+
+source ~/.git-completion.bash
 
 export PYTHONSTARTUP=$HOME/.pythonstartup 
 export VERSIONER_PYTHON_PREFER_32_BIT=yes

@@ -14,6 +14,8 @@ set softtabstop=4
 set tabstop=8
 "set smarttab
 
+set incsearch
+
 filetype on
 filetype plugin on
 set autoindent

@@ -61,3 +61,5 @@ alias selenium_start="java -jar $WORKON_HOME/novelas/publicacao-core/external/se
 alias activemq_start="$WORKON_HOME/novelas/novelas/infra/apache-activemq-5.2.0/bin/activemq"
 alias solr_start="cd $WORKON_HOME/novelas/novelas/infra/apache-solr-1.3.0/example; java -jar start.jar"
 alias analytics_start="ruby $WORKON_HOME/novelas/novelas/infra/google-analytics-fake/google_analytics.rb"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"

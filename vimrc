@@ -71,6 +71,16 @@ au FileType vim                         let comment = '"'
 noremap <silent> ,c :s,^,<C-R>=comment<CR>,<CR>:noh<CR>
 noremap <silent> ,u :s,^\V<C-R>=comment<CR>,,e<CR>:noh<CR>
 
+" Tabs
+" Shift + h -> go left
+" Shift + l -> go right
+" Alt   + n -> go to tab n  ==> not working :(
+noremap <silent> ,t <ESC>:tabnew<CR>
+noremap <silent> <S-h> gT
+noremap <silent> <S-l> gt
+noremap <silent> <A-1> 1gt
+noremap <silent> <A-2> 2gt
+
 " CommandT
 "noremap <C-t> :<C-u>CommandT<CR>
 

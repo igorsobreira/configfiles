@@ -61,7 +61,7 @@ set statusline=%f\ %y%=[%L-%l,%v]
 set cursorline
 
 " Comment/Uncomment for different languages
-au FileType sh,make,python,ruby         let comment = '#'
+au FileType sh,make,python,ruby,puppet  let comment = '#'
 au FileType c,cpp,java,javascript,go    let comment = '//'
 au FileType vim                         let comment = '"'
 au FileType lua                         let comment = '--'

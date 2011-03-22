@@ -17,8 +17,8 @@ set softtabstop=4
 set tabstop=8
 "set smarttab
 
-au FileType ruby set softtabstop=2
-au FileType ruby set shiftwidth=2
+au FileType ruby,eruby set softtabstop=2
+au FileType ruby,eruby set shiftwidth=2
 
 set incsearch
 
@@ -62,8 +62,9 @@ set cursorline
 
 " Comment/Uncomment for different languages
 au FileType sh,make,python,ruby         let comment = '#'
-au FileType c,cpp,java,javascript       let comment = '//'
+au FileType c,cpp,java,javascript,go    let comment = '//'
 au FileType vim                         let comment = '"'
+au FileType lua                         let comment = '--'
 
 " Comment Blocks
 " ,c -> comment selected
@@ -87,3 +88,7 @@ noremap <silent> <A-2> 2gt
 " Python
 "let python_highlight_all = 1
 au BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,not
+
+au! BufRead,BufNewFile *.go           setfiletype go
+au! BufRead,BufNewFile *.wsgi         setfiletype python
+au! BufRead,BufNewFile *.pp           setfiletype puppet

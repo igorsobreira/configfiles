@@ -1,25 +1,53 @@
 #!/bin/bash
 
-echo ".vimrc"
-rm -f ~/.vimrc
-ln -s `pwd`/vimrc ~/.vimrc
+#echo ".vimrc"
+#mv ~/.vimrc ~/.vimrc.backup
+#ln -s `pwd`/vimrc ~/.vimrc
 
-echo ".vim/ folder"
-rm -rf ~/.vim
-ln -s `pwd`/vim ~/.vim
+place_config_files() {
+    echo ".vim/ folder"
+    if [ -d ~/.vim-backup ]; then
+        rm -rf ~/.vim-backup
+    fi;
+    if [ -d ~/.vim ]; then
+        mv -f ~/.vim ~/.vim-backup
+    fi;
+    ln -s `pwd`/vim ~/.vim
 
-echo ".gitconfig"
-rm -f ~/.gitconfig
-ln -s `pwd`/gitconfig ~/.gitconfig
+    echo ".gitconfig"
+    if [ -f ~/.gitconfig ]; then
+        mv ~/.gitconfig ~/.gitconfig.backup
+    fi;
+    ln -s `pwd`/gitconfig ~/.gitconfig
 
-echo ".profile"
-rm -f ~/.profile
-ln -s `pwd`/profile ~/.profile
+    echo ".profile"
+    if [ -f ~/.profile ]; then
+        mv ~/.profile ~/.profile.backup
+    fi;
+    ln -s `pwd`/profile ~/.profile
 
-echo ".pythonstartup"
-rm -f ~/.pythonstartup
-ln -s `pwd`/pythonstartup ~/.pythonstartup
+    echo ".pythonstartup"
+    if [ -f ~/.pythonstartup ]; then
+        mv ~/.pythonstartup ~/.pythonstartup.backup
+    fi;
+    ln -s `pwd`/pythonstartup ~/.pythonstartup
 
-echo ".git-completion.bash"
-rm -f ~/.git-completion.bash
-ln -s `pwd`/git-completion.bash ~/.git-completion.bash
+    echo ".git-completion.bash"
+    if [ -f ~/.git-completion.bash ];
+    then
+        mv ~/.git-completion.bash ~/.git-completion.bash.backup
+    fi;
+    ln -s `pwd`/git-completion.bash ~/.git-completion.bash
+}
+
+install_ropevim() {
+    echo "installing ropevim"
+    cd ropevim
+    sudo python setup.py install
+    cd ../
+    ln -s `pwd`/ropevim/ropevim.vim `pwd`/vim/plugin/ropevim.vim
+    ln -s `pwd`/ropevim/ropevim.txt `pwd`/vim/doc/ropevim.txt
+} 
+
+place_config_files
+install_ropevim

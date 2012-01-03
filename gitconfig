@@ -1,15 +1,19 @@
 [user]
-	name = Igor Sobreira
-	email = igor@igorsobreira.com
+  name = Igor Sobreira
+  email = igor@igorsobreira.com
 
 [merge]
-	tool = opendiff
+  tool = opendiff
 
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
+  mbranch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+
 [alias]
-	st = status
-	cm = commit -m 
+  st = status --short
+  cm = commit -m 
+  ci = commit
+  lg = log --graph --decorate
+  ch = checkout

@@ -13,6 +13,7 @@ export PATH=$HOME/bin:/usr/local/sbin/:/usr/local/bin:$PATH
 
 export WORKON_HOME=$HOME/.envs
 export PROJECT_HOME=$HOME/dev
+export VIRTUALENVWRAPPER_SCRIPT=/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
 source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper_lazy.sh
 
 source ~/.git-completion.bash
@@ -75,7 +76,6 @@ export GREP_COLOR="4;33"
 alias egrep="egrep --colour"
 alias grep="grep --colour"
 alias tree="tree -C"
-alias vim="mvim -v"
 alias ll="ls -l"
 alias la="ls -la"
 alias ls="ls -G"

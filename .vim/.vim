@@ -1,1 +1,0 @@
-/Users/igor/dev/configfiles/.vim

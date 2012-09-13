@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INSTALL_FILES='.vimrc .gitconfig .pythonstartup'
+INSTALL_FILES='.vimrc .gitconfig .pythonstartup .git-completion.bash .profile'
 
 function backup_existing_file {
     local filename=$1

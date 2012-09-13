@@ -1,1 +1,9 @@
-My config files for bash, vim, git...
+My configuration files
+======================
+
+To install:
+
+   $ ./install.sh
+
+
+

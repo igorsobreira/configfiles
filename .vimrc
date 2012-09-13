@@ -21,7 +21,6 @@ au FileType ruby,eruby set softtabstop=2
 au FileType ruby,eruby set shiftwidth=2
 
 set incsearch
-
 set autoindent
 
 "set foldmethod=indent

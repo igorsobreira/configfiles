@@ -13,8 +13,8 @@ export PATH=$HOME/bin:/usr/local/sbin/:/usr/local/bin:$PATH
 
 export WORKON_HOME=$HOME/.envs
 export PROJECT_HOME=$HOME/dev
-export VIRTUALENVWRAPPER_SCRIPT=/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
-source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper_lazy.sh
+export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 source ~/.git-completion.bash
 export GIT_PS1_SHOWDIRSTATE=true

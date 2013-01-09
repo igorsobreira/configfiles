@@ -23,6 +23,11 @@ export GIT_PS1_SHOWDIRSTATE=true
 # PS1 fun
 #
 
+function p {
+  export PS1='➥ '
+}
+p
+
 # export VIRTUAL_ENV_DISABLE_PROMPT=true
 
 # function add_virtualenv_to_ps1 {

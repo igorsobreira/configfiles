@@ -80,7 +80,7 @@ export GREP_COLOR="4;33"
 
 alias egrep="egrep --colour"
 alias grep="grep --colour"
-alias tree="tree -C"
+alias tree="tree -C -I '*.pyc'"
 alias ll="ls -l"
 alias la="ls -la"
 alias ls="ls -G"

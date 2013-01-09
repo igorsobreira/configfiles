@@ -6,7 +6,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-export EDITOR=emacs
+export EDITOR=vim
 export CLICOLOR="auto"
 
 export PATH=$HOME/bin:/usr/local/sbin/:/usr/local/bin:$PATH

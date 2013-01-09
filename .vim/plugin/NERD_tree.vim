@@ -1,1 +1,0 @@
-/Users/igor.sobreira/projects/nerdtree/plugin/NERD_tree.vim

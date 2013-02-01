@@ -19,6 +19,7 @@ au FileType ruby,eruby set softtabstop=2
 au FileType ruby,eruby set shiftwidth=2
 
 set autoindent
+set cursorline
 
 " Enable bash-like completion
 " 1 tab: complete
@@ -26,8 +27,8 @@ set autoindent
 " 3 tabs: cycle
 set wildmode=longest,list,full
 
-set visualbell
-set mouse=a
+set novisualbell
+set noerrorbells
 set ruler " Always show current positions along the bottom
 set title
 set nostartofline " leave my cursor where it was
@@ -54,3 +55,30 @@ set statusline=%f\ %y%=[%L-%l,%v]
 au! BufRead,BufNewFile *.go           setfiletype go
 au! BufRead,BufNewFile *.wsgi         setfiletype python
 au! BufRead,BufNewFile *.pp           setfiletype puppet
+
+" functions
+
+function! Pdb()
+    " replace the current line (where the cursor is) with a pdb
+    let ident = repeat(" ", col("."))
+    call setline(line("."), ident . "import pdb; pdb.set_trace()")
+endfunction
+
+function! WhitespaceCleanup()
+    " save search history and cursor position
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " remove trailing whitespaces
+    %s/\s\+$//e
+    " restore search history and cursor position
+    let  @/=_s
+    call cursor(l, c)
+endfunction
+
+
+" commands
+
+command! W w
+command! Pdb call Pdb()
+command! WhitespaceCleanup call WhitespaceCleanup()

@@ -17,51 +17,12 @@ export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 source ~/.git-completion.bash
-export GIT_PS1_SHOWDIRSTATE=true
-
-#
-# PS1 fun
-#
-
-function p {
-  export PS1='➥ '
-}
-p
-
-# export VIRTUAL_ENV_DISABLE_PROMPT=true
-
-# function add_virtualenv_to_ps1 {
-#     if [ -n "$VIRTUAL_ENV" ]
-#     then
-#         local env="`basename $VIRTUAL_ENV`"
-#         export PS1="[py-`virtualenvwrapper_get_python_version`@$env] $PS1"
-#     fi
-# }
-# function remove_virtualenv_from_ps1 {
-#     pd
-# }
-
-# # call 'p' do display beautiful prompt, and 'pd' do delete it
-# function p {
-#     local        BLUE="\[\033[0;34m\]"
-#     local         RED="\[\033[0;31m\]"
-#     local   LIGHT_RED="\[\033[1;31m\]"
-#     local       GREEN="\[\033[0;32m\]"
-#     local LIGHT_GREEN="\[\033[1;32m\]"
-#     local       WHITE="\[\033[1;37m\]"
-#     local  LIGHT_GRAY="\[\033[0;37m\]"
-    
-#     export PS1="[\$(~/bin/rvm-prompt i v g)] ${GREEN}\H ${WHITE}@ ${BLUE}\w${WHITE}${WHITE} ${RED}$(__git_ps1 "(%s)") ${WHITE}\$ "
-#     add_virtualenv_to_ps1
-# }
-# function pd {
-#     local       GREEN="\[\033[0;32m\]"
-
-#     export PS1="${WHITE}\$ "
-# }
-# pd
+source ~/.git-prompt.sh
 
 export PYTHONSTARTUP=$HOME/.pythonstartup 
+
+export GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='\u@\w$(__git_ps1 " (%s)") ➥ '
 
 # pip bash completion
 _pip_completion()

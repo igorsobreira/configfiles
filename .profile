@@ -22,7 +22,7 @@ source ~/.git-prompt.sh
 export PYTHONSTARTUP=$HOME/.pythonstartup 
 
 export GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\u@\w$(__git_ps1 " (%s)") ➥ '
+export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") \[\033[01;32m\]➥\[\033[00m\] '
 
 # pip bash completion
 _pip_completion()
@@ -46,5 +46,7 @@ alias ll="ls -l"
 alias la="ls -la"
 alias ls="ls -G"
 alias emacs="emacs --no-splash"
+
+ssh-add ~/.ssh/id_rsa
 
 [ -f ~/.profile.local ] && . ~/.profile.local

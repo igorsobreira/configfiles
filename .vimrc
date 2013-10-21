@@ -1,7 +1,13 @@
 
 syntax on
+filetype indent on
+
+set background=dark
+set hlsearch
+"colorscheme morning
 
 set encoding=utf-8
+set nocompatible
 
 set ignorecase
 set nowrap
@@ -10,16 +16,11 @@ set smartcase  " if there are caps, go case-sensitive
 set expandtab
 set shiftwidth=4
 set softtabstop=4
-set tabstop=8
+set tabstop=4
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
 set autoindent
 
-filetype on
-au FileType ruby,eruby set softtabstop=2
-au FileType ruby,eruby set shiftwidth=2
-
-set autoindent
-set cursorline
+set nocursorline
 
 " Enable bash-like completion
 " 1 tab: complete
@@ -52,9 +53,26 @@ set statusline=%f\ %y%=[%L-%l,%v]
  "              | +-- rodified flag in square brackets
  "              +-- full path to file in the buffer
 
-au! BufRead,BufNewFile *.go           setfiletype go
 au! BufRead,BufNewFile *.wsgi         setfiletype python
 au! BufRead,BufNewFile *.pp           setfiletype puppet
+au! BufRead,BufNewFile Vagrantfile    setfiletype ruby
+
+au FileType ruby,eruby setlocal softtabstop=2
+au FileType ruby,eruby setlocal shiftwidth=2
+
+au FileType go,make setlocal noexpandtab
+
+au FileType puppet setlocal shiftwidth=2
+au FileType puppet setlocal softtabstop=2
+
+au FileType html setlocal shiftwidth=2
+au FileType html setlocal softtabstop=2
+
+" this this markdown extension for github extras
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
 
 " functions
 
@@ -82,3 +100,10 @@ endfunction
 command! W w
 command! Pdb call Pdb()
 command! WhitespaceCleanup call WhitespaceCleanup()
+
+" go integration
+let go_highlight_trailing_whitespace_error = 0
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+
+" don't scroll when spliting window
+nnoremap <C-W>s Hmx`` \|:split<CR>`xzt``

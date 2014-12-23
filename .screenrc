@@ -1,0 +1,6 @@
+hardstatus alwayslastline
+hardstatus string "%{= g} %{= w}%-Lw%{=r}%n%f* %t%{-}%+LW"
+
+# Window numbers start at 1
+bind c screen 1
+screen 1

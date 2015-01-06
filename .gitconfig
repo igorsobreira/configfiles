@@ -19,3 +19,6 @@
   lga = log --graph --color --pretty='format:%C(yellow)%h%C(cyan)%d %Creset%s %C(blue)%an, %ar' --date-order --all
   co = checkout
   cp = cherry-pick
+
+[core]
+  excludesfile = ~/.gitignore

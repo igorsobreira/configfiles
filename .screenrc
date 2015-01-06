@@ -4,3 +4,8 @@ hardstatus string "%{= g} %{= w}%-Lw%{=r}%n%f* %t%{-}%+LW"
 # Window numbers start at 1
 bind c screen 1
 screen 1
+
+startup_message off
+
+# If a window goes unresponsive, don't block the whole session waiting for it.
+nonblock on

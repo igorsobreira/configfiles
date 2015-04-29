@@ -33,6 +33,9 @@ set title
 set nostartofline " leave my cursor where it was
 set nobackup
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 set laststatus=2 " always show the status line
 set statusline=%f\ %y%=[%L-%l,%v]
 "set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v
@@ -69,6 +72,9 @@ au FileType html setlocal softtabstop=2
 "au FileType javascript setlocal shiftwidth=2
 "au FileType javascript setlocal softtabstop=2
 
+filetype plugin indent on
+syntax on
+
 " this this markdown extension for github extras
 augroup markdown
     au!
@@ -96,26 +102,14 @@ function! WhitespaceCleanup()
 endfunction
 
 
+let go_highlight_trailing_whitespace_error = 0
+let g:go_fmt_command = "goimports"
+
 " commands
 
 command! W w
 command! Pdb call Pdb()
 command! WhitespaceCleanup call WhitespaceCleanup()
-
-" go integration
-filetype off
-filetype plugin indent off
-let go_highlight_trailing_whitespace_error = 0
-set runtimepath+=$GOROOT/misc/vim
-filetype plugin indent on
-syntax on
-
-" :Fmt command will not only format the code but also include/remove
-" imports as necessary
-let g:gofmt_command = "goimports"
-
-" Automatically call :Fmt when .go file is saved
-" autocmd BufWritePre *.go Fmt
 
 " don't scroll when spliting window
 nnoremap <C-W>s Hmx`` \|:split<CR>`xzt``

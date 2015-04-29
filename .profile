@@ -47,6 +47,9 @@ alias la="ls -la"
 alias ls="ls -G"
 alias emacs="emacs --no-splash"
 
+# brew install gnu-sed
+alias sed=gsed
+
 ssh-add $(find ~/.ssh/id_rsa_* | grep -v "\.pub") 2>&-
 ssh-add $(find ~/.ssh/*.pem) 2>&-
 
@@ -62,7 +65,6 @@ export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/igor/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
-export GOROOT=$HOME/dev/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin
 
@@ -73,3 +75,17 @@ export NVM_DIR="/Users/igor/.nvm"
 # The orginal version is saved in .profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
 export PATH
+
+# Setting PATH for Python 3.4
+# The orginal version is saved in .profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${GOPATH}/bin:${PATH}"
+export PATH
+
+eval "$(rbenv init -)"
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
+
+alias fuck='$(thefuck $(fc -ln -1))'

@@ -5,6 +5,9 @@
 [merge]
   tool = opendiff
 
+[difftool]
+  prompt = false
+
 [color]
   mbranch = auto
   diff = auto
@@ -15,10 +18,19 @@
   st = status --short
   cm = commit -m
   llg = log --graph --color --decorate --date-order --stat
-  lg  = log --graph --color --pretty='format:%C(yellow)%h%C(cyan)%d %Creset%s %C(blue)%an, %ar' --date-order
-  lga = log --graph --color --pretty='format:%C(yellow)%h%C(cyan)%d %Creset%s %C(blue)%an, %ar' --date-order --all
+  lg  = log --graph --color --pretty='format:%C(yellow)%h%C(cyan)%d %Creset%s %C(blue)%an %C(cyan)%aD' --date-order
+  lga = log --graph --color --pretty='format:%C(yellow)%h%C(cyan)%d %Creset%s %C(blue)%an %C(cyan)%aD' --date-order --all
   co = checkout
   cp = cherry-pick
 
 [core]
   excludesfile = ~/.gitignore
+  pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R -S
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true

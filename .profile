@@ -14,15 +14,19 @@ export PATH=$HOME/bin:/usr/local/sbin/:/usr/local/bin:$PATH
 export WORKON_HOME=$HOME/.envs
 export PROJECT_HOME=$HOME/dev
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then source /usr/local/bin/virtualenvwrapper_lazy.sh; fi
 
-source /Users/igor/.git-completion.bash
-source /Users/igor/.git-prompt.sh
+export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[00m\] \[\033[01;32m\]➥\[\033[00m\] '
+
+if [ -f /Users/igor/.git-completion.bash ]; then source /Users/igor/.git-completion.bash; fi
+if [ -f /Users/igor/.git-prompt.sh ]; then
+    source /Users/igor/.git-prompt.sh
+    export GIT_PS1_SHOWDIRTYSTATE=true
+    export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") \[\033[01;32m\]➥\[\033[00m\] '
+fi
+
 
 export PYTHONSTARTUP=$HOME/.pythonstartup 
-
-export GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") \[\033[01;32m\]➥\[\033[00m\] '
 
 # pip bash completion
 _pip_completion()
@@ -50,8 +54,8 @@ alias emacs="emacs --no-splash"
 # brew install gnu-sed
 alias sed=gsed
 
-ssh-add $(find ~/.ssh/id_rsa_* | grep -v "\.pub") 2>&-
-ssh-add $(find ~/.ssh/*.pem) 2>&-
+ssh-add $(find ~/.ssh/id_rsa_* 2>&- | grep -v "\.pub") 2>&-
+ssh-add $(find ~/.ssh/*.pem 2>&-) 2>&-
 
 [ -f ~/.profile.local ] && . ~/.profile.local
 
@@ -80,8 +84,6 @@ export PATH
 # The orginal version is saved in .profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${GOPATH}/bin:${PATH}"
 export PATH
-
-eval "$(rbenv init -)"
 
 # Setting PATH for Python 2.7
 # The orginal version is saved in .profile.pysave

@@ -28,7 +28,7 @@
   pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R -S
 
 [url "git@github.com:"]
-  insteadOf = https://github.com/
+	insteadOf = https://github.com/
 
 [filter "lfs"]
 	clean = git lfs clean %f

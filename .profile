@@ -6,6 +6,8 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+export LC_ALL=en_US.UTF-8
+
 export EDITOR=vim
 export CLICOLOR="auto"
 
@@ -25,8 +27,9 @@ if [ -f /Users/igor/.git-prompt.sh ]; then
     export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") \[\033[01;32m\]➥\[\033[00m\] '
 fi
 
-
 export PYTHONSTARTUP=$HOME/.pythonstartup 
+export GIT_PS1_SHOWDIRTYSTATE=true
+export PS1="\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$(__git_ps1)\n$ "
 
 # pip bash completion
 _pip_completion()
@@ -50,12 +53,13 @@ alias ll="ls -l"
 alias la="ls -la"
 alias ls="ls -G"
 alias emacs="emacs --no-splash"
+alias dc=docker-compose
 
 # brew install gnu-sed
 alias sed=gsed
 
-ssh-add $(find ~/.ssh/id_rsa_* 2>&- | grep -v "\.pub") 2>&-
-ssh-add $(find ~/.ssh/*.pem 2>&-) 2>&-
+ssh-add ~/Dropbox/dev/keys/id_rsa_github 2>/dev/null
+ssh-add ~/Dropbox/dev/keys/id_rsa_realgeeks 2>/dev/null
 
 [ -f ~/.profile.local ] && . ~/.profile.local
 
@@ -65,29 +69,17 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 set -o emacs
 
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/igor/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin
-
 export NVM_DIR="/Users/igor/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Setting PATH for Python 3.4
-# The orginal version is saved in .profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-export PATH
+export HOMEBREW_GITHUB_API_TOKEN=7b9be5467316806e32e0ca8d8cdb81f4cd2695f2
 
-# Setting PATH for Python 3.4
-# The orginal version is saved in .profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${GOPATH}/bin:${PATH}"
-export PATH
+export AWS_DEFAULT_REGION="us-east-1"
 
-# Setting PATH for Python 2.7
-# The orginal version is saved in .profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+export PATH="~/bin:${PATH}"
 
-alias fuck='$(thefuck $(fc -ln -1))'
+# Go from Homebrew
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/go/bin
+export GOPATH=$HOME/go
+
+export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"

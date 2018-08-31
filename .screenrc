@@ -1,3 +1,7 @@
+
+# Make shell a login shell
+defshell -bash
+
 hardstatus alwayslastline
 hardstatus string "%{= g} %{= w}%-Lw%{=r}%n%f* %t%{-}%+LW"
 
@@ -9,3 +13,5 @@ startup_message off
 
 # If a window goes unresponsive, don't block the whole session waiting for it.
 nonblock on
+
+defscrollback 100000

@@ -66,8 +66,11 @@ au FileType go,make setlocal noexpandtab
 au FileType puppet setlocal shiftwidth=2
 au FileType puppet setlocal softtabstop=2
 
-au FileType html setlocal shiftwidth=2
-au FileType html setlocal softtabstop=2
+au FileType htmldjango,html setlocal shiftwidth=2
+au FileType htmldjango,html setlocal softtabstop=2
+
+au FileType yaml setlocal softtabstop=2
+au FileType yaml setlocal shiftwidth=2
 
 "au FileType javascript setlocal shiftwidth=2
 "au FileType javascript setlocal softtabstop=2
@@ -108,8 +111,13 @@ let g:go_fmt_command = "goimports"
 " commands
 
 command! W w
+command! Wq wq
 command! Pdb call Pdb()
 command! WhitespaceCleanup call WhitespaceCleanup()
 
 " don't scroll when spliting window
 nnoremap <C-W>s Hmx`` \|:split<CR>`xzt``
+
+" don't rezise window splits when one is cloed
+set noea
+

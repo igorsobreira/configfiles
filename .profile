@@ -72,8 +72,6 @@ set -o emacs
 export NVM_DIR="/Users/igor/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export HOMEBREW_GITHUB_API_TOKEN=7b9be5467316806e32e0ca8d8cdb81f4cd2695f2
-
 export AWS_DEFAULT_REGION="us-east-1"
 
 export PATH="~/bin:${PATH}"

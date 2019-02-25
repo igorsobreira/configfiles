@@ -81,3 +81,5 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/go/bin
 export GOPATH=$HOME/go
 
 export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"

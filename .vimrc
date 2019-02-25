@@ -1,6 +1,25 @@
 
-set hlsearch
+" setup Vundle
 
+filetype off                         " required for Vundle
+set rtp+=~/.vim/bundle/Vundle.vim    " set the runtime path to include Vundle
+call vundle#begin()                  " ...and initialize
+
+Plugin 'VundleVim/Vundle.vim'        " let Vundle manage Vundle, required
+Plugin 'fatih/vim-go'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+syntax on
+
+set hlsearch
 set background=dark
 colorscheme default
 
@@ -28,10 +47,11 @@ set wildmode=longest,list,full
 
 set novisualbell
 set noerrorbells
-set ruler " Always show current positions along the bottom
+set ruler         " Always show current positions along the bottom
 set title
 set nostartofline " leave my cursor where it was
 set nobackup
+set noea          " don't rezise window splits when one is cloed
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -55,8 +75,6 @@ set statusline=%f\ %y%=[%L-%l,%v]
  "              +-- full path to file in the buffer
 
 au! BufRead,BufNewFile *.wsgi         setfiletype python
-au! BufRead,BufNewFile *.pp           setfiletype puppet
-au! BufRead,BufNewFile Vagrantfile    setfiletype ruby
 
 au FileType ruby,eruby setlocal softtabstop=2
 au FileType ruby,eruby setlocal shiftwidth=2
@@ -72,11 +90,8 @@ au FileType htmldjango,html setlocal softtabstop=2
 au FileType yaml setlocal softtabstop=2
 au FileType yaml setlocal shiftwidth=2
 
-"au FileType javascript setlocal shiftwidth=2
-"au FileType javascript setlocal softtabstop=2
-
-filetype plugin indent on
-syntax on
+au FileType javascript setlocal shiftwidth=2
+au FileType javascript setlocal softtabstop=2
 
 " this this markdown extension for github extras
 augroup markdown
@@ -118,6 +133,10 @@ command! WhitespaceCleanup call WhitespaceCleanup()
 " don't scroll when spliting window
 nnoremap <C-W>s Hmx`` \|:split<CR>`xzt``
 
-" don't rezise window splits when one is cloed
-set noea
+" open NERDTree with Ctrl+n
+map <C-n> :NERDTreeToggle<CR>
+
+" tabs
+map <C-t>p :tabp<cr>
+map <C-t>n :tabn<cr>
 

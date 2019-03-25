@@ -18,18 +18,12 @@ export PROJECT_HOME=$HOME/dev
 export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
 if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then source /usr/local/bin/virtualenvwrapper_lazy.sh; fi
 
-export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[00m\] \[\033[01;32m\]➥\[\033[00m\] '
-
 if [ -f ~/.git-completion.bash ]; then source ~/.git-completion.bash; fi
-if [ -f ~/.git-prompt.sh ]; then
-    source ~/.git-prompt.sh
-    export GIT_PS1_SHOWDIRTYSTATE=true
-    export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") \[\033[01;32m\]➥\[\033[00m\] '
-fi
+if [ -f ~/.git-prompt.sh ]; then source ~/.git-prompt.sh; fi
 
 export PYTHONSTARTUP=$HOME/.pythonstartup 
 export GIT_PS1_SHOWDIRTYSTATE=true
-export PS1="\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$(__git_ps1)\n$ "
+export PS1="\[\033[35m\]\t\[\033[m\] \[\033[33;1m\]\w\[\033[m\]\$(__git_ps1)\n$ "
 
 # pip bash completion
 _pip_completion()

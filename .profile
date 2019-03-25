@@ -20,9 +20,9 @@ if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then source /usr/local/bin/v
 
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[00m\] \[\033[01;32m\]➥\[\033[00m\] '
 
-if [ -f /Users/igor/.git-completion.bash ]; then source /Users/igor/.git-completion.bash; fi
-if [ -f /Users/igor/.git-prompt.sh ]; then
-    source /Users/igor/.git-prompt.sh
+if [ -f ~/.git-completion.bash ]; then source ~/.git-completion.bash; fi
+if [ -f ~/.git-prompt.sh ]; then
+    source ~/.git-prompt.sh
     export GIT_PS1_SHOWDIRTYSTATE=true
     export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") \[\033[01;32m\]➥\[\033[00m\] '
 fi

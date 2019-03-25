@@ -14,3 +14,4 @@ Install Vundle
 Install all plugins. Inside vim run
 
     :PluginInstall
+

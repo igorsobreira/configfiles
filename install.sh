@@ -18,3 +18,9 @@ do
     install_file $filename
     echo "Installed ${filename} at ~/"
 done
+
+echo "installing diff-so-fancy"
+brew install diff-so-fancy
+
+echo "installing diff-highlight (require sudo)"
+sudo easy_install diff-highlight

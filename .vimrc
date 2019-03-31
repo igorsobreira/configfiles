@@ -14,6 +14,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'majutsushi/tagbar'
 Plugin 'chr4/nginx.vim'
 Plugin 'hashivim/vim-terraform'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -137,6 +140,15 @@ nnoremap <C-W>s Hmx`` \|:split<CR>`xzt``
 
 " open NERDTree with Ctrl+n
 map <C-n> :NERDTreeToggle<CR>
+
+" fzf (fuzzy search) with Ctrl+P
+nnoremap <C-P> :Files<CR>
+
+" make FZF respect gitignore if `ag` is installed
+" you will obviously need to install `ag` for this to work
+if (executable('ag'))
+    let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
+endif
 
 " tabs
 map <C-t>p :tabp<cr>

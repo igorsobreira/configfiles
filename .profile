@@ -15,11 +15,12 @@ export PATH=$HOME/bin:/usr/local/sbin/:/usr/local/bin:$PATH
 
 export WORKON_HOME=$HOME/.envs
 export PROJECT_HOME=$HOME/dev
-export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-if [ -f /usr/local/bin/virtualenvwrapper_lazy.sh ]; then source /usr/local/bin/virtualenvwrapper_lazy.sh; fi
 
 if [ -f ~/.git-completion.bash ]; then source ~/.git-completion.bash; fi
 if [ -f ~/.git-prompt.sh ]; then source ~/.git-prompt.sh; fi
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 export PYTHONSTARTUP=$HOME/.pythonstartup 
 export GIT_PS1_SHOWDIRTYSTATE=true
@@ -53,7 +54,6 @@ alias dc=docker-compose
 alias sed=gsed
 
 ssh-add ~/Dropbox/dev/keys/id_rsa_github 2>/dev/null
-ssh-add ~/Dropbox/dev/keys/id_rsa_realgeeks 2>/dev/null
 
 [ -f ~/.profile.local ] && . ~/.profile.local
 
@@ -75,5 +75,6 @@ export PATH=$PATH:/usr/local/opt/go/libexec/bin:$HOME/go/bin
 export GOPATH=$HOME/go
 
 export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"
-
 export PATH="$HOME/.poetry/bin:$PATH"
+
+export CPPFLAGS="-I/usr/local/opt/zlib/include" 

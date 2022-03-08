@@ -2,9 +2,6 @@
   name = Igor Sobreira
   email = igor@igorsobreira.com
 
-[merge]
-  tool = opendiff
-
 [difftool]
   prompt = false
 
